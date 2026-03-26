@@ -7,24 +7,36 @@
     "message": "快速入门",
     "description": "The label for category 'Getting Started' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.Guide": {
-    "message": "开发指南",
-    "description": "The label for category 'Guide' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.Core Guides": {
+    "message": "核心指南",
+    "description": "The label for category 'Core Guides' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Security": {
     "message": "安全",
     "description": "The label for category 'Security' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.Features": {
-    "message": "内置功能",
-    "description": "The label for category 'Features' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.Advanced Topics": {
+    "message": "进阶主题",
+    "description": "The label for category 'Advanced Topics' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.Advanced": {
-    "message": "进阶",
-    "description": "The label for category 'Advanced' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.API Reference": {
+    "message": "API 参考",
+    "description": "The label for category 'API Reference' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.Reference": {
-    "message": "参考",
-    "description": "The label for category 'Reference' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.Starter Package": {
+    "message": "Starter 包",
+    "description": "The label for category 'Starter Package' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Components Package": {
+    "message": "Components 包",
+    "description": "The label for category 'Components Package' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Hooks Package": {
+    "message": "Hooks 包",
+    "description": "The label for category 'Hooks Package' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Shared Package": {
+    "message": "Shared 包",
+    "description": "The label for category 'Shared Package' in sidebar 'docsSidebar'"
   }
 }

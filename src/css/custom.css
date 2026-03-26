@@ -363,6 +363,7 @@ pre {
 
 .theme-doc-toc-desktop {
     top: calc(var(--ifm-navbar-height) + 1rem);
+    overflow-y: visible;
 }
 
 .theme-doc-toc-desktop > div,

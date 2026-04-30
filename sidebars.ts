@@ -219,8 +219,7 @@ const sidebars: SidebarsConfig = {
           items: [
             "reference/starter/overview",
             "reference/starter/bootstrap-and-routing",
-            "reference/starter/page-layout",
-            "reference/starter/crud",
+            "reference/starter/application-shell",
             "reference/starter/stores-and-types"
           ]
         },
@@ -232,7 +231,8 @@ const sidebars: SidebarsConfig = {
             "reference/components/overview",
             "reference/components/vef-components",
             "reference/components/form-and-data",
-            "reference/components/antd-pass-through"
+            "reference/components/antd-pass-through",
+            "reference/components/page-and-crud"
           ]
         },
         {

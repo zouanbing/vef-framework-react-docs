@@ -15,7 +15,7 @@ VEF 的表单能力主要来自 `@vef-framework-react/components`，核心入口
 ## 最常见的使用姿势
 
 ```tsx
-import { Grid, useDataOptionsSelect, useFormContext } from "@vef-framework-react/components";
+import { Grid, useDictionaryOptionsSelect, useFormContext } from "@vef-framework-react/components";
 import { z } from "@vef-framework-react/shared";
 
 const validators = {
@@ -26,8 +26,8 @@ const validators = {
 export function UserForm() {
   const { AppField } = useFormContext<{ name: string; gender: string }>();
 
-  const genderSelectProps = useDataOptionsSelect({
-    dataDictKey: "common.gender"
+  const { gender } = useDictionaryOptionsSelect({
+    gender: "common.gender"
   });
 
   return (
@@ -40,7 +40,7 @@ export function UserForm() {
 
       <Grid.Item span={12}>
         <AppField name="gender" validators={{ onChange: validators.gender }}>
-          {field => <field.Select {...genderSelectProps} required label="性别" />}
+          {field => <field.Select {...gender} required label="性别" />}
         </AppField>
       </Grid.Item>
     </Grid>
@@ -117,10 +117,14 @@ const deptTreeSelectProps = useDataOptionsTreeSelect({
 ### 数据字典
 
 ```tsx
-const genderSelectProps = useDataOptionsSelect({
-  dataDictKey: "common.gender"
+const { gender } = useDictionaryOptionsSelect({
+  gender: "common.gender"
 });
+
+// <field.Select {...gender} />
 ```
+
+`useDictionaryOptionsSelect(keys, options?)` 返回 `{ alias: SelectProps }` 映射。需要拼音搜索时传 `{ filterable: true }`，或者按 key 单独配置 `{ key: { key: "...", filterable: true } }`。
 
 ## 常用字段类型
 
@@ -136,6 +140,6 @@ const genderSelectProps = useDataOptionsSelect({
 
 页面里尽量让“数据来源”和“字段展示”解耦:
 
-- `useDataOptionsSelect()` 负责拿选项
+- `useDataOptionsSelect()`（字典场景用 `useDictionaryOptionsSelect()`）负责拿选项
 - `AppField` 负责绑定字段
 - `Grid` 负责排版

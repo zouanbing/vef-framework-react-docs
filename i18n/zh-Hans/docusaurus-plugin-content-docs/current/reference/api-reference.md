@@ -45,6 +45,7 @@ title: 包级 API 地图
 - `useForm`
 - `useFormContext`
 - `useDataOptionsSelect`
+- `useDictionaryOptionsSelect`
 - `Table`
 - `PermissionGate`
 - `Icon`
@@ -79,7 +80,7 @@ title: 包级 API 地图
 
 优先查看:
 
-- `useDataDictQuery`
+- `useDictionaryQuery`
 - `useDataOptionsQuery`
 - `useHasFetching`
 - `useHasMutating`

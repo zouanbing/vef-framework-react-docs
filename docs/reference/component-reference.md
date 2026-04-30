@@ -81,6 +81,7 @@ title: Component Export Index
 - `Pagination`
 - `usePaginationProps`
 - `useDataOptionsSelect`
+- `useDictionaryOptionsSelect`
 - `useDataOptionsTreeSelect`
 - `useDataOptionsTree`
 

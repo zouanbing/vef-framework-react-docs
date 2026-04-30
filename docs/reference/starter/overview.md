@@ -7,19 +7,19 @@ title: Starter Package Overview
 
 `@vef-framework-react/starter` is the package that turns VEF into a complete application shell.
 
-It mainly covers two areas:
+It mainly covers three areas:
 
-1. application bootstrap and routing
-2. application shell components (layouts, login, error pages)
+1. application bootstrap
+2. routing and layouts
+3. application shell components (root app, layouts, login, status pages)
 
-> **Note (v2.1.6):** `Page`, `FlexCard`, `FormModal`, `FormDrawer`, `ProSearch`, `ProTable`, `Crud`, `CrudPage`, and `createCrudKit` have moved from `starter` to `@vef-framework-react/components`.
+Page-level containers, form dialogs, tables, and the CRUD stack are documented under [Components / Pages, Form Containers, and CRUD](../components/page-and-crud.md).
 
 ## Suggested Reading Order
 
 1. [Bootstrap and Routing](./bootstrap-and-routing.md)
-2. [Page Layout and Form Containers](./page-layout.md)
-3. [CRUD and Table Stack](./crud.md)
-4. [Stores, Constants, and Types](./stores-and-types.md)
+2. [Application Shell](./application-shell.md)
+3. [Stores, Constants, and Types](./stores-and-types.md)
 
 ## Common Exports
 
@@ -28,4 +28,9 @@ It mainly covers two areas:
 - `createRouter`
 - `createRootRouteOptions`
 - `createLayoutRouteOptions`
+- `App`
+- `Layout` / `BaseLayout`
+- `Login`
+- `RouterProvider`
+- `ThemeConfigProvider`
 - `setupAppVersionNotification`

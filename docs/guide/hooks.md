@@ -11,7 +11,7 @@ title: Hooks
 
 | Hook | Purpose |
 | --- | --- |
-| `useDataDictQuery` | Fetch options from the application data-dictionary function |
+| `useDictionaryQuery` | Fetch options from the application data-dictionary function |
 | `useDataOptionsQuery` | Convert arbitrary list data into a normalized options shape |
 | `useCheckPermission` | Get a reusable permission-check function |
 | `useIsAuthorized` | Check whether current permissions satisfy a condition |
@@ -19,21 +19,26 @@ title: Hooks
 | `useHasFetching` | Check whether a class of queries is still loading |
 | `useHasMutating` | Check whether a class of mutations is still running |
 
-## `useDataDictQuery`
+## `useDictionaryQuery`
 
-Once `appContext.dataDictQueryFn` is provided in `createApp().render()`, it can be used like this:
+Once `appContext.dictionaryQueryFn` is provided in `createApp().render()`, dictionaries can be requested using an alias map. Each alias becomes a key on the resolved data:
 
 ```tsx
-const genderQuery = useDataDictQuery({
-  dataDictKey: "common.gender"
+const { data, isFetching } = useDictionaryQuery({
+  gender: "common.gender",
+  status: "user.status"
 });
+
+// data is `undefined` until the query resolves.
+const genderOptions = data?.gender ?? [];
 ```
 
-Typical cases:
+Notes:
 
-- enum selects
-- status dictionaries
-- shared system options
+- `useDictionaryQuery(keys, options?)` returns a native `UseQueryResult<TData>`; `data` is `undefined` until the request finishes successfully.
+- `options.enabled` defers the request, e.g. while upstream parameters are not ready.
+- `options.select` lets callers reshape the resolved alias map. Its identity is forwarded to React Query, so stabilize `keys` and `select` with module scope, `as const`, `useMemo`, or `useCallback` to avoid invalidating memoization on every render.
+- For typical select usage prefer `useDictionaryOptionsSelect`, which wraps `useDictionaryQuery` and produces ready-to-spread `SelectProps` per alias.
 
 ## `useDataOptionsQuery`
 

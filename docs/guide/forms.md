@@ -15,7 +15,7 @@ It can be understood as an enterprise-oriented UI wrapper around TanStack Form.
 ## Typical Usage
 
 ```tsx
-import { Grid, useDataOptionsSelect, useFormContext } from "@vef-framework-react/components";
+import { Grid, useDictionaryOptionsSelect, useFormContext } from "@vef-framework-react/components";
 import { z } from "@vef-framework-react/shared";
 
 const validators = {
@@ -26,8 +26,8 @@ const validators = {
 export function UserForm() {
   const { AppField } = useFormContext<{ name: string; gender: string }>();
 
-  const genderSelectProps = useDataOptionsSelect({
-    dataDictKey: "common.gender"
+  const { gender } = useDictionaryOptionsSelect({
+    gender: "common.gender"
   });
 
   return (
@@ -40,7 +40,7 @@ export function UserForm() {
 
       <Grid.Item span={12}>
         <AppField name="gender" validators={{ onChange: validators.gender }}>
-          {field => <field.Select {...genderSelectProps} required label="Gender" />}
+          {field => <field.Select {...gender} required label="Gender" />}
         </AppField>
       </Grid.Item>
     </Grid>
@@ -117,10 +117,14 @@ const deptTreeSelectProps = useDataOptionsTreeSelect({
 ### Data Dictionary
 
 ```tsx
-const genderSelectProps = useDataOptionsSelect({
-  dataDictKey: "common.gender"
+const { gender } = useDictionaryOptionsSelect({
+  gender: "common.gender"
 });
+
+// <field.Select {...gender} />
 ```
+
+`useDictionaryOptionsSelect(keys, options?)` returns a `{ alias: SelectProps }` map. Pass `{ filterable: true }` (or per-key `{ key: { key: "...", filterable: true } }`) to enable pinyin search.
 
 ## Common Field Types
 
@@ -136,6 +140,6 @@ const genderSelectProps = useDataOptionsSelect({
 
 It is usually better to keep data sourcing and field rendering separate:
 
-- `useDataOptionsSelect()` fetches or builds options
+- `useDataOptionsSelect()` (or `useDictionaryOptionsSelect()` for dictionary-based selects) fetches or builds options
 - `AppField` binds field state
 - `Grid` handles layout

@@ -7,8 +7,8 @@ title: 布局与页面容器
 
 VEF 在页面布局上有两层核心能力:
 
-- 应用级布局: `Layout` / `BaseLayout`
-- 页面级容器: `Page` / `FlexCard`
+- 应用级布局: `Layout` / `BaseLayout`（来自 `@vef-framework-react/starter`）
+- 页面级容器: `Page` / `FlexCard`（来自 `@vef-framework-react/components`）
 
 ## `Page` 是业务页最常见的入口
 

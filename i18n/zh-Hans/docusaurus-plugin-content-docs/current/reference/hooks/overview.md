@@ -19,7 +19,7 @@ title: Hooks 包总览
 
 | Hook | 用途 |
 | --- | --- |
-| `useDataDictQuery` | 拉数据字典 |
+| `useDictionaryQuery` | 拉数据字典 |
 | `useDataOptionsQuery` | 把任意 query 结果转换成统一选项结构 |
 | `useCheckPermission` | 拿到可复用的权限判断函数 |
 | `useIsAuthorized` | 直接判断权限 |

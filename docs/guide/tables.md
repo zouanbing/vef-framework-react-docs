@@ -5,10 +5,10 @@ title: Tables
 
 # Tables
 
-VEF has two table layers:
+VEF has two table layers, both exported from `@vef-framework-react/components`:
 
-1. `@vef-framework-react/components` exports `Table`
-2. `@vef-framework-react/components` exports `ProTable`
+1. `Table` — display only
+2. `ProTable` — page-level table integrated with query, pagination, selection, and column settings
 
 Use `Table` when data only needs to be displayed.  
 Use `ProTable` when query integration, pagination, column settings, operation columns, and selection state are needed.

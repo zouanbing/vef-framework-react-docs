@@ -47,9 +47,11 @@ title: VEF Hooks
 - 数据请求前先判断是否允许操作
 - 某个 helper 里需要权限判断
 
-## `useDataDictQuery`
+## `useDictionaryQuery`
 
-基于 `appContext.dataDictQueryFn` 拉取数据字典。
+通过 `appContext.dictionaryQueryFn` 拉取数据字典，以别名映射的方式按需返回。
+
+签名: `useDictionaryQuery(keys, options?) => UseQueryResult<TData>`。
 
 推荐场景:
 
@@ -57,13 +59,14 @@ title: VEF Hooks
 - 搜索表单的枚举条件
 - 下拉和单选组选项
 
-关键参数:
+行为说明:
 
-| 参数 | 类型 | 说明 |
-| --- | --- | --- |
-| `dataDictKey` | `string` | 字典 key |
-| `onFetch` | `(data) => void` | 拉取完成回调 |
-| 其余 query 参数 | `UseQueryOptions` 子集 | query 行为控制 |
+- `keys` 是别名映射，例如 `{ gender: "common.gender" }`；每个别名会成为 `data` 上的一个字段。
+- 返回值采用 React Query 原生语义——`data` 在请求成功之前是 `undefined`。
+- `options.enabled` 用来推迟请求。
+- `options.select` 用来再加工字典数据，注意保持 `keys` 和 `select` 引用稳定，否则会让 React Query 的 `select` memoization 每次渲染都失效。
+
+普通下拉场景优先用 `useDictionaryOptionsSelect`，它在本 hook 之上再封一层，直接给出可展开到 `Select` 的 `SelectProps`。
 
 ## `useDataOptionsQuery`
 
@@ -80,7 +83,6 @@ title: VEF Hooks
 | 参数 | 类型 | 说明 |
 | --- | --- | --- |
 | `queryOptions` | `UseQueryOptions` | 普通 query 来源 |
-| `dataDictKey` | `string` | 字典来源 |
 | `labelKey` / `valueKey` | `string \| fn` | 字段映射 |
 | `disabledKey` / `descriptionKey` / `childrenKey` | `string \| fn` | 额外字段映射 |
 | `withPinyin` | `boolean` | 是否补拼音字段 |

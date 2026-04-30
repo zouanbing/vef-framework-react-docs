@@ -118,6 +118,7 @@ import { PlusIcon } from "lucide-react";
 优先配合这些 hook 一起用:
 
 - `useDataOptionsSelect`
+- `useDictionaryOptionsSelect`
 - `useDataOptionsTreeSelect`
 - `useDataOptionsTree`
 

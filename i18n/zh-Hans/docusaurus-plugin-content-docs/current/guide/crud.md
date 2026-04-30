@@ -174,6 +174,24 @@ operationColumn={{
 }}
 ```
 
+## 行为说明
+
+使用 `CrudPage` 时，下面几个行为值得知道:
+
+- `delete` / `deleteMany` 成功后，`CrudPage` 会自动清空内部的选中行状态——依赖 `selectedRows` 的工具栏按钮会自行重新禁用，无需手工 reset。
+- 各场景的 action 渲染器（`renderFormActions[scene]`）签名是 `(formApi, defaults)`，`defaults` 里带着框架默认的 `submitButton` 和 `resetButton`。需要自定义布局又想保留默认按钮时，直接组合即可:
+
+```tsx
+renderFormActions={{
+  create: (_formApi, { submitButton, resetButton }) => (
+    <Group gap="small">
+      {resetButton}
+      {submitButton}
+    </Group>
+  )
+}}
+```
+
 ## 实践建议
 
 更适合复用的通常不是“通用 CRUD 页面组件”，而是:

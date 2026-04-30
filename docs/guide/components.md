@@ -117,5 +117,6 @@ import { DynamicIcon } from "@vef-framework-react/components";
 If a page uses many selects, tree selects, or cascaders, option transformation is usually better handled through the exported hooks:
 
 - `useDataOptionsSelect`
+- `useDictionaryOptionsSelect`
 - `useDataOptionsTreeSelect`
 - `useDataOptionsTree`

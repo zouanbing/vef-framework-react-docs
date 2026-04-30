@@ -210,7 +210,7 @@ createApp().render({
     hasPermission(token) {
       return token.startsWith("demo:");
     },
-    dataDictQueryFn: undefined,
+    dictionaryQueryFn: undefined,
     fileBaseUrl: "/files"
   },
   appVersionNotification: {

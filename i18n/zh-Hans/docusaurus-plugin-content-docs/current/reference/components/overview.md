@@ -7,14 +7,13 @@ title: Components 包总览
 
 `@vef-framework-react/components` 是页面层最直接会接触到的包。为了避免文档重复翻译一遍 Ant Design，这一组参考文档按两类能力拆开:
 
-> **v2.1.6：** `Page`、`FlexCard`、`FormModal`、`FormDrawer`、`ProSearch`、`ProTable`、`Crud`、`CrudPage` 和 `createCrudKit` 已从 `starter` 迁移到本包。
-
 1. **VEF 自研或增强导出**
 2. **Antd 透传导出**
 
 ## 阅读方式
 
 - 如果你要找框架自己的表单、权限、图标、动画、数据选项能力，优先看 [VEF 自研组件](./vef-components.md) 和 [表单与数据能力](./form-and-data.md)。
+- 如果你要找页面容器、表单弹窗、表格抽象与 CRUD 体系——`Page`、`FlexCard`、`FormModal`、`FormDrawer`、`ProSearch`、`ProTable`、`Crud`、`CrudPage`、`createCrudKit`——见 [页面、表单容器与 CRUD](./page-and-crud.md)。
 - 如果你只是确认某个组件是不是原样透传 Antd，直接看 [Antd 透传组件](./antd-pass-through.md)。
 
 ## Antd 透传组件的处理方式
@@ -35,7 +34,7 @@ title: Components 包总览
 | --- | --- | --- |
 | 操作按钮 | `ActionButton`、`ActionGroup`、`OperationButton` | 需要异步点击、二次确认、批量动作 |
 | 表单体系 | `useForm`、`useFormContext`、`withForm`、`withFieldGroup` | 新增、编辑、搜索表单 |
-| 数据选项 | `useDataOptionsSelect`、`useDataOptionsTreeSelect`、`useDataOptionsTree` | 下拉、树选、字典选项 |
+| 数据选项 | `useDataOptionsSelect`、`useDictionaryOptionsSelect`、`useDataOptionsTreeSelect`、`useDataOptionsTree` | 下拉、树选、字典选项 |
 | 布局组件 | `Grid`、`Group`、`Stack`、`Center`、`ScrollArea` | 后台页表单、卡片、树表联动 |
 | 主题与反馈 | `ConfigProvider`、`useThemeTokens`、`showSuccessMessage` 等 | 页面主题和统一反馈 |
 | 动画与展示 | `CodeHighlighter`、`FlipText`、`SparklesText`、`TypingAnimation` | 文档、欢迎页、增强展示 |

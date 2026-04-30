@@ -69,7 +69,7 @@ const { Form, AppField, SubmitButton } = useForm({
 
 ## `useDataOptionsSelect`
 
-把普通 query 或数据字典结果转换为可直接传给 `Select` 的 props。
+把普通 query 数据转换为可直接传给 `Select` 的 props。数据字典场景请使用 [`useDictionaryOptionsSelect`](#usedictionaryoptionsselect)。
 
 推荐场景:
 
@@ -82,10 +82,28 @@ const { Form, AppField, SubmitButton } = useForm({
 | 字段 | 类型 | 说明 |
 | --- | --- | --- |
 | `queryOptions` | `UseQueryOptions` | 普通 query 来源 |
-| `dataDictKey` | `string` | 数据字典 key |
 | `filterable` | `boolean` | 是否启用拼音搜索 |
 | `labelKey` / `valueKey` | `string \| fn` | 字段映射 |
 | `onFetch` | `(data) => void` | 获取后回调 |
+
+> 数据字典场景请使用 [`useDictionaryOptionsSelect`](#usedictionaryoptionsselect)。
+
+## `useDictionaryOptionsSelect`
+
+在 `useDictionaryQuery` 之上再封一层，按别名直接吐出可展开到 `Select` 的 `SelectProps` 映射。
+
+```tsx
+const { gender, status } = useDictionaryOptionsSelect({
+  gender: "common.gender",
+  status: "user.status"
+}, { filterable: true });
+```
+
+说明:
+
+- 单个 key 想单独控制是否启用拼音搜索时，写成 `{ key: { key: "...", filterable: true } }`
+- 拿到的就是现成的 `SelectProps`，直接 `<Select {...gender} />` 即可
+- 多次使用同一组字典 key 时，底层 query 会自动合流复用
 
 ## `useDataOptionsTreeSelect`
 

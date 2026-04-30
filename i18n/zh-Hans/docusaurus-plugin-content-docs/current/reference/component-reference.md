@@ -81,6 +81,7 @@ title: 组件导出索引
 - `Pagination`
 - `usePaginationProps`
 - `useDataOptionsSelect`
+- `useDictionaryOptionsSelect`
 - `useDataOptionsTreeSelect`
 - `useDataOptionsTree`
 

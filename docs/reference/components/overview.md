@@ -15,6 +15,7 @@ title: Components Package Overview
 ## How to Read This Section
 
 - For VEF-specific form, permission, icon, animation, and options APIs, start with [VEF Components](./vef-components.md) and [Forms and Data APIs](./form-and-data.md).
+- For page containers, form dialogs, table abstractions, and the CRUD stack — `Page`, `FlexCard`, `FormModal`, `FormDrawer`, `ProSearch`, `ProTable`, `Crud`, `CrudPage`, `createCrudKit` — see [Pages, Form Containers, and CRUD](./page-and-crud.md).
 - For components that are largely thin wrappers around Ant Design, use [Ant Design Pass-Through Components](./antd-pass-through.md).
 
 ## Key VEF-Specific Capabilities
@@ -26,7 +27,7 @@ title: Components Package Overview
 | Form containers | `FormModal`, `FormDrawer` | create and edit forms in modal or drawer |
 | CRUD stack | `Crud`, `CrudPage`, `createCrudKit`, `ProTable`, `ProSearch` | full CRUD pages |
 | Form system | `useForm`, `useFormContext`, `withForm`, `withFieldGroup` | create, edit, and search forms |
-| Option adapters | `useDataOptionsSelect`, `useDataOptionsTreeSelect`, `useDataOptionsTree` | select, tree select, data dictionaries |
+| Option adapters | `useDataOptionsSelect`, `useDictionaryOptionsSelect`, `useDataOptionsTreeSelect`, `useDataOptionsTree` | select, tree select, data dictionaries |
 | Layout components | `Grid`, `Group`, `Stack`, `Center`, `ScrollArea` | admin-page forms, cards, tree-table layouts |
 | Theme and feedback | `ConfigProvider`, `useThemeTokens`, `showSuccessMessage` | page theme integration and unified feedback |
 | Enhanced presentation | `CodeHighlighter`, `FlipText`, `SparklesText`, `TypingAnimation` | docs, landing sections, richer display blocks |

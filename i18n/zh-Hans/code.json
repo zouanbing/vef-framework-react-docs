@@ -21,7 +21,7 @@
     "message": "约定驱动、企业级 React 框架"
   },
   "homepage.hero.description": {
-    "message": "文档聚焦如何使用 `@vef-framework/*` 导出的 API 来构建应用，覆盖路由、请求、表单、CRUD 页面以及审批流集成。"
+    "message": "文档聚焦如何使用 `@vef-framework-react/*` 导出的 API 来构建应用，覆盖路由、请求、表单、CRUD 页面以及审批流集成。"
   },
   "homepage.hero.primary": {
     "message": "阅读总览"

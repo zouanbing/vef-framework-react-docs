@@ -5,10 +5,10 @@ title: 表格
 
 # 表格
 
-VEF 里有两层表格能力:
+VEF 里有两层表格能力，都从 `@vef-framework-react/components` 导出:
 
-1. `@vef-framework-react/components` 的 `Table`
-2. `@vef-framework-react/starter` 的 `ProTable`
+1. `Table` — 仅做数据展示
+2. `ProTable` — 页面级表格，已经把查询、分页、选中、列设置串起来
 
 如果你只是展示数据，用 `Table` 即可。  
 如果你要接查询、分页、列设置、操作列、选择状态，优先用 `ProTable`。

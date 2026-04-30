@@ -11,7 +11,7 @@ title: Hooks
 
 | Hook | 解决什么问题 |
 | --- | --- |
-| `useDataDictQuery` | 从应用上下文的数据字典函数拉选项 |
+| `useDictionaryQuery` | 从应用上下文的数据字典函数拉选项 |
 | `useDataOptionsQuery` | 把任意列表数据转换为统一选项结构 |
 | `useCheckPermission` | 拿到一个可复用的权限判断函数 |
 | `useIsAuthorized` | 直接判断当前权限是否满足 |
@@ -19,21 +19,26 @@ title: Hooks
 | `useHasFetching` | 判断某类 query 是否还在加载 |
 | `useHasMutating` | 判断某类 mutation 是否还在执行 |
 
-## `useDataDictQuery`
+## `useDictionaryQuery`
 
-只要你在 `createApp().render()` 里提供了 `appContext.dataDictQueryFn`，就可以这样用:
+只要你在 `createApp().render()` 里提供了 `appContext.dictionaryQueryFn`，就可以用别名映射的方式拉字典，每个别名对应解析后的一段数据:
 
 ```tsx
-const genderQuery = useDataDictQuery({
-  dataDictKey: "common.gender"
+const { data, isFetching } = useDictionaryQuery({
+  gender: "common.gender",
+  status: "user.status"
 });
+
+// 在请求成功之前，data 是 undefined。
+const genderOptions = data?.gender ?? [];
 ```
 
-它非常适合:
+注意:
 
-- 枚举下拉
-- 状态字典
-- 系统级基础选项
+- `useDictionaryQuery(keys, options?)` 返回原生的 `UseQueryResult<TData>`，请求成功之前 `data` 是 `undefined`。
+- `options.enabled` 用来推迟请求，比如上游参数还没准备好的时候。
+- `options.select` 可以把字典别名映射再加工一次。它的引用会被透传给 React Query，所以请用模块作用域、`as const`、`useMemo` 或 `useCallback` 把 `keys` 和 `select` 稳住，避免每次渲染都重置 memoization。
+- 普通下拉场景优先用 `useDictionaryOptionsSelect`——它在 `useDictionaryQuery` 之上再封了一层，按别名直接吐 `SelectProps`，可以直接展开到 `Select` 上。
 
 ## `useDataOptionsQuery`
 

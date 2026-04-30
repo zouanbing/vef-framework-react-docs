@@ -113,6 +113,24 @@ After that:
 - toolbar buttons can access selected rows directly
 - row operation columns can access `openForm`, `delete`, and `refetchQuery`
 
+## Behavior Notes
+
+A few behaviors are worth knowing when working with `CrudPage`:
+
+- After `delete` or `deleteMany` succeed, `CrudPage` automatically clears the internal selection state. Toolbar buttons that depend on `selectedRows` will re-disable on their own — no manual reset is needed.
+- Per-scene action renderers (`renderFormActions[scene]`) receive `(formApi, defaults)`, where `defaults` exposes the framework's default `submitButton` and `resetButton`. Custom layouts can keep the standard buttons by composing them:
+
+```tsx
+renderFormActions={{
+  create: (_formApi, { submitButton, resetButton }) => (
+    <Group gap="small">
+      {resetButton}
+      {submitButton}
+    </Group>
+  )
+}}
+```
+
 ## Reuse Strategy
 
 The most reusable pieces are usually:

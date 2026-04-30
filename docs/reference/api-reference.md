@@ -45,6 +45,7 @@ Start with:
 - `useForm`
 - `useFormContext`
 - `useDataOptionsSelect`
+- `useDictionaryOptionsSelect`
 - `Table`
 - `PermissionGate`
 - `Icon`
@@ -79,7 +80,7 @@ Best suited for:
 
 Start with:
 
-- `useDataDictQuery`
+- `useDictionaryQuery`
 - `useDataOptionsQuery`
 - `useHasFetching`
 - `useHasMutating`

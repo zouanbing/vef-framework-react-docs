@@ -17,9 +17,20 @@ Returns breakpoint state from a custom breakpoint configuration.
 
 Returns a reusable function for imperative permission checks.
 
-## `useDataDictQuery`
+## `useDictionaryQuery`
 
-Fetches data-dictionary options through `appContext.dataDictQueryFn`.
+Fetches data-dictionary options through `appContext.dictionaryQueryFn` using an alias map.
+
+Signature: `useDictionaryQuery(keys, options?) => UseQueryResult<TData>`.
+
+Key behaviors:
+
+- `keys` is an alias map such as `{ gender: "common.gender" }`; each alias becomes a key in the resolved `data`.
+- `data` follows React Query semantics — it is `undefined` until the query resolves.
+- `options.enabled` defers fetching.
+- `options.select` reshapes the resolved alias map. Stabilize `keys` and `select` references to avoid invalidating React Query's `select` memoization on each render.
+
+For typical select usage prefer `useDictionaryOptionsSelect`, which wraps this hook and produces ready-to-spread `SelectProps`.
 
 ## `useDataOptionsQuery`
 

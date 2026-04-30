@@ -7,8 +7,8 @@ title: Layouts and Page Containers
 
 VEF page layout is centered around two layers:
 
-- application-level layouts: `Layout` / `BaseLayout`
-- page-level containers: `Page` / `FlexCard`
+- application-level layouts: `Layout` / `BaseLayout` (from `@vef-framework-react/starter`)
+- page-level containers: `Page` / `FlexCard` (from `@vef-framework-react/components`)
 
 ## `Page`
 

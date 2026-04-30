@@ -41,13 +41,29 @@ Extension points for composing higher-level form abstractions while keeping the 
 
 ## `useDataOptionsSelect`
 
-Transforms regular query results or dictionary data into props suitable for `Select`.
-
-Recommended for:
+Transforms regular query results into props suitable for `Select`. Recommended for:
 
 - normal selects
 - multi-selects
 - remote option lists
+
+For dictionary-driven selects use [`useDictionaryOptionsSelect`](#usedictionaryoptionsselect).
+
+## `useDictionaryOptionsSelect`
+
+Wraps `useDictionaryQuery` and produces a `{ alias: SelectProps }` map ready to spread into `Select`.
+
+```tsx
+const { gender, status } = useDictionaryOptionsSelect({
+  gender: "common.gender",
+  status: "user.status"
+}, { filterable: true });
+```
+
+Notes:
+
+- per-key filterability can be set via `{ key: { key: "...", filterable: true } }`
+- `data` is hidden behind the resulting `SelectProps`; the underlying query is shared with other consumers of the same dict keys
 
 ## `useDataOptionsTreeSelect`
 
